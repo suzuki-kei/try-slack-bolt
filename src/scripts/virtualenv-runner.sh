@@ -64,8 +64,6 @@ function command:setup
 
     source "${VIRTUALENV_DIR}/bin/activate"
     pip install -r requirements.txt
-
-    exit ${EXIT_STATUS_SUCCESS}
 }
 
 function command:repl
