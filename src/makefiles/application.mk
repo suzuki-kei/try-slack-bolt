@@ -19,3 +19,7 @@ run: # アプリケーションを実行する.
 test: # テストを実行する.
 	@bash src/scripts/virtualenv-runner.sh test
 
+.PHONY: coverage
+coverage: # テストのカバレッジを計測する.
+	@bash src/scripts/virtualenv-runner.sh coverage
+

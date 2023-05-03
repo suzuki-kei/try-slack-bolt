@@ -43,7 +43,7 @@ function main
             echo "${USAGE}"
             exit ${EXIT_STATUS_SUCCESS}
             ;;
-        setup | repl | run | test)
+        setup | repl | run | test | coverage)
             command:${COMMAND}
             exit ${EXIT_STATUS_SUCCESS}
             ;;
@@ -86,6 +86,16 @@ function command:test
 {
     source "${VIRTUALENV_DIR}/bin/activate"
     python -m unittest discover -t "${ROOT_DIR}" -s "${ROOT_DIR}/src/test/myapp"
+}
+
+function command:coverage
+{
+    source "${VIRTUALENV_DIR}/bin/activate"
+    export COVERAGE_FILE="${ROOT_DIR}/target/coverage"
+    coverage erase
+    coverage run --branch --omit 'src/test/*' -m unittest discover -t "${ROOT_DIR}" -s "${ROOT_DIR}/src/test/myapp"
+    coverage report
+    coverage html --directory=./target/docs/coverage/
 }
 
 main "$@"
