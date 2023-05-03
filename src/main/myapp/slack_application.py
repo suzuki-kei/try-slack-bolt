@@ -1,7 +1,7 @@
-from settings import Settings
+from myapp.settings import Settings
+from myapp.strings import strip_heredoc
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
-from strings import strip_heredoc
 import re
 
 

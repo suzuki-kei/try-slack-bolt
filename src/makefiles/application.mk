@@ -11,3 +11,7 @@ repl: # python の repl を開始する.
 run: # アプリケーションを実行する.
 	@bash src/scripts/virtualenv-runner.sh run
 
+.PHONY: test
+test: # テストを実行する.
+	@bash src/scripts/virtualenv-runner.sh test
+

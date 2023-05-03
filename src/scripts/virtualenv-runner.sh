@@ -40,7 +40,7 @@ function main
             echo "${USAGE}"
             exit ${EXIT_STATUS_SUCCESS}
             ;;
-        setup | repl | run)
+        setup | repl | run | test)
             command:${COMMAND}
             exit ${EXIT_STATUS_SUCCESS}
             ;;
@@ -68,6 +68,8 @@ function command:setup
 function command:repl
 {
     source "${VIRTUALENV_DIR}/bin/activate"
+    export PYTHONPATH="${ROOT_DIR}/src/main"
+    export PYTHONPYCACHEPREFIX="${ROOT_DIR}/__pycache__"
     python
 }
 
@@ -78,7 +80,17 @@ function command:run
     fi
 
     source "${VIRTUALENV_DIR}/bin/activate"
-    python "${ROOT_DIR}/src/main/main.py"
+    export PYTHONPATH="${ROOT_DIR}/src/main"
+    export PYTHONPYCACHEPREFIX="${ROOT_DIR}/__pycache__"
+    python "${ROOT_DIR}/src/main/myapp/main.py"
+}
+
+function command:test
+{
+    source "${VIRTUALENV_DIR}/bin/activate"
+    export PYTHONPATH="${ROOT_DIR}/src/main"
+    export PYTHONPYCACHEPREFIX="${ROOT_DIR}/__pycache__"
+    python -m unittest discover -t "${ROOT_DIR}" -s "${ROOT_DIR}/src/test/myapp"
 }
 
 main "$@"

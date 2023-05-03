@@ -1,5 +1,5 @@
-from settings import Settings
-from slack_application import create_socket_mode_handler
+from myapp.settings import Settings
+from myapp.slack_application import create_socket_mode_handler
 
 
 def main():
