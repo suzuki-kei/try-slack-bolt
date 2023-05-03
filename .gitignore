@@ -8,8 +8,8 @@
 # virtualenv
 /virtualenv/
 
-# credentials
-/credentials/
+# application config
+/config/export.sh
 
 # temporary files
 /target/

@@ -1,0 +1,13 @@
+
+# Slack ボットトークン ("xoxb-" から始まる値).
+export SLACK_BOT_TOKEN=''
+
+# Slack アプリレベルトークン ("xapp-" から始まる値).
+export SLACK_APP_TOKEN=''
+
+# Slack ボットのユーザ ID.
+export SLACK_BOT_USER_ID=''
+
+# Slack ボットの発言を削除するためのリアクション.
+export SLACK_REACTION_TO_DELETE_MESSAGE=''
+
