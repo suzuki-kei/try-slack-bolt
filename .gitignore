@@ -8,3 +8,6 @@
 # virtualenv
 /virtualenv/
 
+# credentials
+/credentials/
+

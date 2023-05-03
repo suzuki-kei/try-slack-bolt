@@ -73,6 +73,10 @@ function command:repl
 
 function command:run
 {
+    if [[ -f "${ROOT_DIR}/credentials/export.sh" ]]; then
+        source "${ROOT_DIR}/credentials/export.sh"
+    fi
+
     source "${VIRTUALENV_DIR}/bin/activate"
     python "${ROOT_DIR}/src/main/main.py"
 }
