@@ -9,7 +9,7 @@ class LoadSettingsError(Exception):
 
 class Settings(object):
 
-    slots = (
+    __slots__ = (
         "SLACK_APP_TOKEN",
         "SLACK_BOT_TOKEN",
     )
