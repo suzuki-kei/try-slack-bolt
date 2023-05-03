@@ -20,8 +20,8 @@ class Settings(object):
         try:
             self.SLACK_APP_TOKEN = _get_string("SLACK_APP_TOKEN")
             self.SLACK_BOT_TOKEN = _get_string("SLACK_BOT_TOKEN")
-            self.SLACK_BOT_USER_ID = "U055Z4SJR5Z"
-            self.SLACK_REACTION_TO_DELETE_MESSAGE = "white_check_mark"
+            self.SLACK_BOT_USER_ID = _get_string("SLACK_BOT_USER_ID")
+            self.SLACK_REACTION_TO_DELETE_MESSAGE = _get_string("SLACK_REACTION_TO_DELETE_MESSAGE")
         except KeyError:
             raise LoadSettingsError()
 
