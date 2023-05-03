@@ -5,6 +5,9 @@ set -eu
 declare -r ROOT_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
 declare -r VIRTUALENV_DIR="${ROOT_DIR}/virtualenv"
 
+export PYTHONPATH="${ROOT_DIR}/src/main"
+export PYTHONPYCACHEPREFIX="${ROOT_DIR}/target/__pycache__"
+
 declare -r EXIT_STATUS_SUCCESS=0
 declare -r EXIT_STATUS_INVALID_ARGUMENTS=1
 
@@ -68,8 +71,6 @@ function command:setup
 function command:repl
 {
     source "${VIRTUALENV_DIR}/bin/activate"
-    export PYTHONPATH="${ROOT_DIR}/src/main"
-    export PYTHONPYCACHEPREFIX="${ROOT_DIR}/target/__pycache__"
     python
 }
 
@@ -80,16 +81,12 @@ function command:run
     fi
 
     source "${VIRTUALENV_DIR}/bin/activate"
-    export PYTHONPATH="${ROOT_DIR}/src/main"
-    export PYTHONPYCACHEPREFIX="${ROOT_DIR}/target/__pycache__"
     python "${ROOT_DIR}/src/main/myapp/main.py"
 }
 
 function command:test
 {
     source "${VIRTUALENV_DIR}/bin/activate"
-    export PYTHONPATH="${ROOT_DIR}/src/main"
-    export PYTHONPYCACHEPREFIX="${ROOT_DIR}/target/__pycache__"
     python -m unittest discover -t "${ROOT_DIR}" -s "${ROOT_DIR}/src/test/myapp"
 }
 
