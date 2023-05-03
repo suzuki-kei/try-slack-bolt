@@ -11,3 +11,6 @@
 # credentials
 /credentials/
 
+# temporary files
+/target/
+
