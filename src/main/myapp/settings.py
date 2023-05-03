@@ -18,10 +18,17 @@ class Settings(object):
 
     def __init__(self):
         try:
-            self.SLACK_APP_TOKEN = os.environ["SLACK_APP_TOKEN"]
-            self.SLACK_BOT_TOKEN = os.environ["SLACK_BOT_TOKEN"]
+            self.SLACK_APP_TOKEN = _get_string("SLACK_APP_TOKEN")
+            self.SLACK_BOT_TOKEN = _get_string("SLACK_BOT_TOKEN")
             self.SLACK_BOT_USER_ID = "U055Z4SJR5Z"
             self.SLACK_REACTION_TO_DELETE_MESSAGE = "white_check_mark"
         except KeyError:
             raise LoadSettingsError()
+
+
+def _get_string(key: str) -> str:
+    value = os.environ.get(key)
+    if value is None or value.strip() == "":
+        raise LoadSettingsError(f"{key}=[{value}]")
+    return value.strip()
 
