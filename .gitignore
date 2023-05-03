@@ -2,6 +2,9 @@
 # vim
 *.swp
 
+# python
+**/__pycache__/
+
 # virtualenv
 /virtualenv/
 
