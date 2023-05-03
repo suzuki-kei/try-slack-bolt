@@ -84,5 +84,5 @@ def remove_first_mention_string(text: str) -> str:
     """
         最初のメンション文字列を削除する.
     """
-    return re.compile(r"<@.+?>").sub("", text, 1).strip()
+    return re.compile(r"<@.+?>").sub("", text, 1)
 
